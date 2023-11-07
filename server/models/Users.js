@@ -1,6 +1,8 @@
 const mongoose = require("mongoose");
 const bcrypt = require("bcrypt");
+
 const newsSchema = require("./News");
+
 const userSchema = new mongoose.Schema(
   {
     username: {
@@ -26,11 +28,15 @@ const userSchema = new mongoose.Schema(
     },
   }
 );
+
 userSchema.methods.checkPassword = async function (password) {
   return bcrypt.compare(password, this.password);
 };
+
 userSchema.virtual("newsCount").get(function () {
   return this.bookmarkedNews.length;
 });
+
 const User = mongoose.model("User", userSchema);
+
 module.exports = User;
