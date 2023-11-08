@@ -1,18 +1,11 @@
-import { useState } from 'react'
-import './App.css'
-import NavBar from './components/NavBar';
+/* eslint-disable no-unused-vars */
+import React from 'react';
+import { Outlet } from 'react-router-dom';
 
-function App() {
-  const [count, setCount] = useState(0)
-
+const App = () => {
   return (
     <>
-      <div>
-
-        <NavBar/>
-        
-      </div>
-      
+      <Outlet />
     </>
   )
 }
