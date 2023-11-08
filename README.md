@@ -1,1 +1,1 @@
-# Headline Report Co.
+# Headline Report
