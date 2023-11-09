@@ -1,11 +1,34 @@
+/* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import { useState } from "react";
+import searchNews from "../../utils/API";
 
-const Search = () => {
+const Search = ({ handleSearchInput }) => {
+  const [searchInput, setSearchInput] = useState("");
+
+  const onFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await searchNews(searchInput);
+
+      if (!response.ok) {
+        throw new Error("something went wrong!");
+      }
+      const { articles } = await response.json();
+
+      handleSearchInput(articles);
+    } catch (err) {
+      console.error("Error fetching data:", err);
+    } finally {
+      setSearchInput("");
+    }
+  };
+
   return (
-    <div>
+    <div style={{ padding: "1em" }}>
       <div
-        style={{ backgroundColor: "#4D4D4D", color: "white", padding: "1em" }}
+        style={{ backgroundColor: "#3D3D3D", color: "white", padding: "1em" }}
       >
         <div
           style={{
@@ -14,13 +37,20 @@ const Search = () => {
             alignItems: "center",
           }}
         >
-          <input
-            style={{ borderRadius: ".5em", width: "40em" }}
-            placeholder="Search for news"
-          ></input>
-          <button style={{ backgroundColor: "white", borderRadius: ".5em" }}>
-            Search
-          </button>
+          <form onSubmit={onFormSubmit}>
+            <input
+              style={{ borderRadius: ".5em" }}
+              placeholder="Search for news"
+              onChange={(e) => setSearchInput(e.target.value)}
+              value={searchInput}
+            ></input>
+            <button
+              style={{ backgroundColor: "white", borderRadius: ".5em" }}
+              type="submit"
+            >
+              Search
+            </button>
+          </form>
         </div>
       </div>
     </div>
