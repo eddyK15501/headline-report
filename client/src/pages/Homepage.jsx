@@ -4,7 +4,7 @@ import searchNews from "../../utils/API";
 
 import Search from "../components/Search";
 
-const SearchNews = () => {
+const Homepage = () => {
   // THIS IS JUST TEMPORARY; uncomment useEffect() to get News API data in console.log()
   //   useEffect(() => {
   //     searchNews("today")
@@ -19,4 +19,4 @@ const SearchNews = () => {
   )
 };
 
-export default SearchNews;
+export default Homepage;

@@ -6,7 +6,7 @@ import "semantic-ui-css/semantic.min.css";
 
 import App from "./App.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
-import SearchNews from "./pages/SearchNews.jsx";
+import Homepage from "./pages/Homepage.jsx";
 
 const router = createBrowserRouter([
   {
@@ -16,7 +16,7 @@ const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <SearchNews />
+        element: <Homepage />
       }
     ]
   }
