@@ -31,14 +31,14 @@ const typeDefs = `
     }
 
     type Query {
+        me: User
         users: [User]
         user(username: String!): User
-        me: User
     }
     
     type Mutation {
-        addUser(username: String!, email: String!, password: String!): Auth
         login(email: String!, password: String!): Auth
+        addUser(username: String!, email: String!, password: String!): Auth
         saveNews(newsSaved: newsInput): User
         removeNews(newsId: String!): User
     }
