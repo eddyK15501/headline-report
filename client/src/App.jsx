@@ -12,6 +12,8 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 import './styles/App.scss'
+import Homepage from "./pages/Homepage";
+import Login from "./pages/Login"
 
 const httpLink = createHttpLink({
   uri: "/graphql",
@@ -37,6 +39,8 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Navbar />
+      {/* <Route path="/" element={<Homepage/>} /> */}
+      {/* <Route path="/Login" element={<Login/>} /> */}
       <Outlet />
     </ApolloProvider>
   );

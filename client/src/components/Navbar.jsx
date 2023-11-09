@@ -8,10 +8,10 @@ const Navbar = () => {
         <h1 style={{margin: '1em'}}>Headline Report</h1>
         <ul style={{ listStyleType: 'none', display: 'flex', justifyContent: 'right', alignItems: 'right' }} className='nav-btns'>
           <li style={{  margin: '2em' }}>
-            Home
+            <a href="/">Home</a>
           </li>
           <li style={{  margin: '2em' }}>
-            Log In
+            <a href="/Login">Log In</a>
           </li>
           <li style={{  margin: '2em' }}>
             Profile
@@ -25,4 +25,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default Navbar;

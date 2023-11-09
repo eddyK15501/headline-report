@@ -7,11 +7,9 @@ const Search = () => {
             
             <div style={{ backgroundColor: '#3D3D3D', color: 'white', padding: "1em" }}>
 
-            {/* <h2 style={{display: 'flex', justifyContent: "center", alignItems: 'center' }}>Start A New Search</h2> */}
-
             <div style={{display: 'flex', justifyContent: "center", alignItems: 'center'}}>
                 
-                <input style={{borderRadius: ".5em"}} placeholder="Search for news"></input>
+                <input style={{borderRadius: ".5em", width:"40em"}} placeholder="Search for news"></input>
                 <button style={{backgroundColor: "white", borderRadius: ".5em"}}>Search</button>
             </div>
         </div>
@@ -20,4 +18,4 @@ const Search = () => {
 };
 
 
-export default Search
+export default Search;
