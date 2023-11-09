@@ -12,6 +12,8 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 
 import './styles/App.scss'
+import Homepage from "./pages/Homepage";
+import Login from "./components/CreateAccount"
 
 const httpLink = createHttpLink({
   uri: "/graphql",

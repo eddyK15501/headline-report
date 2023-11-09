@@ -3,6 +3,9 @@ import { useState } from "react";
 
 import Search from "../components/Search";
 
+import NewsResults from "../components/NewsResults";
+import CreateAccount from "../components/CreateAccount";
+
 const Homepage = () => {
   const [searchedNews, setSearchedNews] = useState([])
 
@@ -14,6 +17,10 @@ const Homepage = () => {
   return (
     <div style={{ margin: "1em" }}>
         <Search handleSearchInput={handleSearchInput} />
+
+        <NewsResults />
+<br></br>
+        <CreateAccount />
     </div>
   )
 };
