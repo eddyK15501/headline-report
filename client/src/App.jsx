@@ -12,7 +12,7 @@ import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Search from "./components/Search"
 
-import './scss/App.scss'
+import './styles/App.scss'
 
 const httpLink = createHttpLink({
   uri: "/graphql",
