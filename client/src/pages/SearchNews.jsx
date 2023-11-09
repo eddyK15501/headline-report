@@ -1,10 +1,16 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import { useEffect } from "react";
+import searchNews from "../../utils/API";
 
 const SearchNews = () => {
-  return (
-    <div style={{  margin: '1em' }}>SearchNews</div>
-  )
-}
+  // THIS IS JUST TEMPORARY; uncomment useEffect() to get News API data in console.log()
+  //   useEffect(() => {
+  //     searchNews("today")
+  //       .then((res) => res.json())
+  //       .then(({ articles }) => console.log(articles));
+  //   }, []);
 
-export default SearchNews
+  return <div style={{ margin: "1em" }}>SearchNews</div>;
+};
+
+export default SearchNews;
