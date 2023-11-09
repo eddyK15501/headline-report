@@ -17,6 +17,10 @@ const Homepage = () => {
   return (
     <div style={{ margin: "1em" }}>
         <Search handleSearchInput={handleSearchInput} />
+
+        <NewsResults />
+<br></br>
+        <CreateAccount />
     </div>
   )
 };
