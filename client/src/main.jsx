@@ -7,6 +7,7 @@ import "semantic-ui-css/semantic.min.css";
 import App from "./App.jsx";
 import ErrorPage from "./pages/ErrorPage.jsx";
 import Homepage from "./pages/Homepage.jsx";
+import Profile from "./pages/Profile.jsx";
 
 const router = createBrowserRouter([
   {
@@ -17,7 +18,11 @@ const router = createBrowserRouter([
       {
         index: true,
         element: <Homepage />
-      }
+      },
+      {
+        path: '/profile',
+        element: <Profile />
+      },
     ]
   }
 ])
