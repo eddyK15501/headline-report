@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 
 // path is to localhost:3000/profile; build this Profile component to render username, email, and the saved news

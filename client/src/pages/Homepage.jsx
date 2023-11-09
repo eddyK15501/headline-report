@@ -4,7 +4,7 @@ import { useState } from "react";
 import Search from "../components/Searchbar/Search";
 
 import NewsResults from "../components/Card/NewsResults";
-import CreateAccount from "../components/Login/CreateAccount";
+import Signup from "../components/Signup/Signup";
 
 const Homepage = () => {
   const [searchedNews, setSearchedNews] = useState([])
@@ -19,8 +19,8 @@ const Homepage = () => {
         <Search handleSearchInput={handleSearchInput} />
 
         <NewsResults />
-<br></br>
-        <CreateAccount />
+        <br></br>
+        <Signup />
     </div>
   )
 };

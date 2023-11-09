@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "semantic-ui-css/semantic.min.css";
 
 const Navbar = () => {
