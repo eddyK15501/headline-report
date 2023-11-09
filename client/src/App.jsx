@@ -10,7 +10,6 @@ import { setContext } from "@apollo/client/link/context";
 import { Outlet } from "react-router-dom";
 
 import Navbar from "./components/Navbar";
-import Search from "./components/Search"
 
 import './styles/App.scss'
 
@@ -38,7 +37,6 @@ const App = () => {
   return (
     <ApolloProvider client={client}>
       <Navbar />
-      <Search/>
       <Outlet />
     </ApolloProvider>
   );
