@@ -16,7 +16,7 @@ const typeDefs = `
         link: String
     }
 
-    type newsInput {
+    input newsInput {
         newsId: String
         source: String
         title: String
@@ -43,3 +43,5 @@ const typeDefs = `
         removeNews(newsId: String!): User
     }
 `;
+
+module.exports = typeDefs;
