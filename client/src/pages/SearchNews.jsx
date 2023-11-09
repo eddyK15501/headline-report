@@ -3,7 +3,7 @@ import React from 'react'
 
 const SearchNews = () => {
   return (
-    <div>SearchNews</div>
+    <div style={{  margin: '1em' }}>SearchNews</div>
   )
 }
 
