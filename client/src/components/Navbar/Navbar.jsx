@@ -29,7 +29,7 @@ const Navbar = () => {
               Log In {showDropdown ? "\u25B3" : "\u25BD"}
               {showDropdown && (
                 <ul
-                  className="ui dropdown-menu"
+                  className="ui dropdown"
                   style={{
                     listStyleType: "none",
                     padding: 0,
@@ -39,8 +39,10 @@ const Navbar = () => {
                     left: 0,
                     backgroundColor: "#3D3D3D",
                     opacity: 1,
+                    zIndex: 10,
                     color: "white",
                     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                    borderRadius: ".5em"
                   }}
                 >
                   <li className="item" style={{ padding: "10px" }}>
