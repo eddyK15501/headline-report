@@ -1,11 +1,17 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "semantic-ui-css/semantic.min.css";
+import Signup from "../Signup/Signup";
 
 const Navbar = () => {
   const [showDropdown, setShowDropdown] = useState(false);
+  const [showSignUp, setShowSignUp] = useState(false);
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
+  };
+
+  const handleCreateAccountClick = () => {
+    setShowSignUp(true);
   };
 
   return (
@@ -55,7 +61,6 @@ const Navbar = () => {
                         style={{
                           margin: "3px",
                           width: "100%",
-                          borderRadius: ".5em",
                         }}
                         onClick={(e) => e.stopPropagation()}
                       />
@@ -71,7 +76,6 @@ const Navbar = () => {
                         style={{
                           margin: "3px",
                           width: "100%",
-                          borderRadius: ".5em",
                         }}
                         onClick={(e) => e.stopPropagation()}
                       />
@@ -81,28 +85,32 @@ const Navbar = () => {
                     <button
                       className="ui button"
                       style={{
-                        margin: "3px",
                         width: "100%",
                         backgroundColor: "white",
-                        color: "#3D3D3D",
-                        border: "none",
-                        padding: "8px",
-                        borderRadius: ".5em",
                       }}
                       onClick={(e) => e.stopPropagation()}
                     >
                       Log In{" "}
                     </button>
                   </li>
+                  <li className="item" onClick={handleCreateAccountClick} style={{textAlign: "center", padding: 1}}>
+                      Create An Account
+                  </li>
                 </ul>
               )}
             </div>
           </li>
-          {/* if logged in */}
+          {/* {{#if loggedIn}} */}
           <li style={{ margin: "2em" }}>Profile</li>
           <li style={{ margin: "2em" }}>Log Out</li>
+          {/* {{/if}} */}
         </ul>
       </nav>
+
+      {showSignUp && (
+        <Signup onClose={() => setShowSignUp(false)} />
+      )}
+
     </div>
   );
 };

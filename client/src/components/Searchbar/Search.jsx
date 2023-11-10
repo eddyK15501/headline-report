@@ -48,7 +48,7 @@ const Search = ({ handleSearchInput }) => {
   return (
     <div style={{ padding: "1em" }}>
       <div
-        style={{ backgroundColor: "#3D3D3D", color: "white", padding: "1em" }}
+        class="ui" style={{ backgroundColor: "#3D3D3D", color: "white", padding: "1em" }}
       >
         <div
           style={{
