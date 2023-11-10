@@ -25,6 +25,7 @@ const Homepage = () => {
 
       <div
         style={{
+          padding: "0 2rem",
           marginTop: "1rem",
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",

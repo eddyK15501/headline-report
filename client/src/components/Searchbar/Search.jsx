@@ -57,15 +57,15 @@ const Search = ({ handleSearchInput }) => {
             alignItems: "center",
           }}
         >
-          <form onSubmit={onFormSubmit}>
+          <form style={{ width: '25%', display: 'flex', gap: '0.5rem'}} onSubmit={onFormSubmit}>
             <input
-              style={{ borderRadius: ".5em" }}
+              style={{ borderRadius: ".5em", outline: "none", width: '95%', fontSize: '1.2rem', padding: '0.4rem 0 0.3rem 0.3rem' }}
               placeholder="Search for news"
               onChange={(e) => setSearchInput(e.target.value)}
               value={searchInput}
             ></input>
             <button
-              style={{ backgroundColor: "white", borderRadius: ".5em" }}
+              style={{ backgroundColor: "white", borderRadius: ".5em", fontSize: '1.1rem', cursor: 'pointer' }}
               type="submit"
             >
               Search
