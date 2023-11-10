@@ -9,7 +9,6 @@ const typeDefs = `
 
     type News {
         newsId: String
-        source: String
         title: String
         description: String
         imageUrl: String
@@ -18,7 +17,6 @@ const typeDefs = `
 
     input newsInput {
         newsId: String
-        source: String
         title: String
         description: String
         imageUrl: String
