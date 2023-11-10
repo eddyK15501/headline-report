@@ -5,6 +5,7 @@ import React from "react";
 const NewsResults = ({ newsId, title, description, link, imageUrl }) => {
   return (
     <div
+      className="news-card"
       style={{
         border: "solid 1px black",
         boxShadow:
