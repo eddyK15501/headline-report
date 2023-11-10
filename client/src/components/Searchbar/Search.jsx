@@ -17,7 +17,16 @@ const Search = ({ handleSearchInput }) => {
       }
       const { articles } = await response.json();
 
-      handleSearchInput(articles);
+      const newsData = articles.map(news => ({
+        newsId: news.url,
+        source: news.source.name,
+        title: news.title,
+        description: news.description,
+        imageUrl: news.urlToImage,
+        link: news.url,
+      }));
+
+      handleSearchInput(newsData);
     } catch (err) {
       console.error("Error fetching data:", err);
     } finally {
