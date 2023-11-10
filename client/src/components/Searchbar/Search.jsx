@@ -31,6 +31,8 @@ const Search = ({ handleSearchInput }) => {
       handleSearchInput(newsData);
     } catch (err) {
       console.error("Error fetching data:", err);
+    } finally {
+      setSearchInput('')
     }
   };
 
