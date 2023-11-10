@@ -1,28 +1,48 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+
+import { useState, useEffect } from "react";
 import searchNews from "../../../utils/API";
 
 const Search = ({ handleSearchInput }) => {
-  const [searchInput, setSearchInput] = useState("");
+  const [searchInput, setSearchInput] = useState("tech");
 
-  const onFormSubmit = async (event) => {
-    event.preventDefault();
-
+  const fetchData = async (input) => {
     try {
-      const response = await searchNews(searchInput);
+      const response = await searchNews(input);
 
       if (!response.ok) {
-        throw new Error("something went wrong!");
+        throw new Error("Something went wrong!");
       }
+
       const { articles } = await response.json();
 
-      handleSearchInput(articles);
+      const newsData = articles.map((news) => ({
+        newsId: news.url,
+        title: news.title,
+        description: news.description,
+        imageUrl:
+          news.urlToImage ||
+          "https://resources.alleghenycounty.us/css/images/Default_No_Image_Available.png",
+        link: news.url,
+      }));
+
+      handleSearchInput(newsData);
     } catch (err) {
       console.error("Error fetching data:", err);
     } finally {
-      setSearchInput("");
+      setSearchInput('')
     }
+  };
+
+  useEffect(() => {
+    fetchData(searchInput);
+  }, []);
+
+  const onFormSubmit = async (event) => {
+    event.preventDefault();
+    fetchData(searchInput);
   };
 
   return (

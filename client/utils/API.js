@@ -1,5 +1,5 @@
 const formatDate = (date) => {
-  date.setDate(date.getDate() - 1);
+  date.setDate(date.getDate() - 2);
 
   const year = date.getFullYear();
   const month = String(date.getMonth() + 1).padStart(2, "0");
@@ -8,6 +8,7 @@ const formatDate = (date) => {
   return `${year}-${month}-${day}`;
 };
 
+// Retrieve back news data from two days ago, for better search results
 const searchNews = (search) => {
   const today = new Date();
   const formattedDate = formatDate(today);
