@@ -98,9 +98,10 @@ const Navbar = () => {
               )}
             </div>
           </li>
-          {/* if logged in */}
+          {/* {{#if loggedIn}} */}
           <li style={{ margin: "2em" }}>Profile</li>
           <li style={{ margin: "2em" }}>Log Out</li>
+          {/* {{/if}} */}
         </ul>
       </nav>
     </div>
