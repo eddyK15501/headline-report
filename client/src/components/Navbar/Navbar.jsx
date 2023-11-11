@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "semantic-ui-css/semantic.min.css";
 import Signup from "../Signup/Signup";
 
@@ -11,7 +11,7 @@ const Navbar = () => {
   };
 
   const handleCreateAccountClick = () => {
-    setShowSignUp(true);
+    setShowSignUp(prev => !prev);
   };
 
   return (
@@ -48,7 +48,7 @@ const Navbar = () => {
                     zIndex: 10,
                     color: "white",
                     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                    borderRadius: ".5em"
+                    borderRadius: ".5em",
                   }}
                 >
                   <li className="item" style={{ padding: "10px" }}>
@@ -93,8 +93,12 @@ const Navbar = () => {
                       Log In{" "}
                     </button>
                   </li>
-                  <li className="item" onClick={handleCreateAccountClick} style={{textAlign: "center", padding: 1}}>
-                      Create An Account
+                  <li
+                    className="item"
+                    onClick={handleCreateAccountClick}
+                    style={{ textAlign: "center", padding: 1 }}
+                  >
+                    Create An Account
                   </li>
                 </ul>
               )}
@@ -107,10 +111,7 @@ const Navbar = () => {
         </ul>
       </nav>
 
-      {showSignUp && (
-        <Signup onClose={() => setShowSignUp(false)} />
-      )}
-
+      {showSignUp && <Signup toggleModal={handleCreateAccountClick} />}
     </div>
   );
 };
