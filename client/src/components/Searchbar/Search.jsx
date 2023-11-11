@@ -1,7 +1,6 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-
 import { useState, useEffect } from "react";
 import searchNews from "../../utils/API";
 
@@ -59,7 +58,7 @@ const Search = ({ handleSearchInput }) => {
         >
           <form style={{ width: '25%', display: 'flex', gap: '0.5rem'}} onSubmit={onFormSubmit}>
             <input
-              style={{ borderRadius: ".5em", outline: "none", width: '95%', fontSize: '1.2rem', padding: '0.4rem 0 0.3rem 0.3rem' }}
+              style={{ borderRadius: ".5em", outline: "none", minWidth: '95%', fontSize: '1.2rem', padding: '0.4rem 0 0.3rem 0.3rem' }}
               placeholder="Search for news"
               onChange={(e) => setSearchInput(e.target.value)}
               value={searchInput}
