@@ -59,7 +59,7 @@ const Signup = ({ toggleModal }) => {
             width: "60%",
             backgroundColor: "#4D4D4D",
             color: "white",
-            marginTop: "1em",
+            marginTop: "2.5em",
           }}
         >
           Create Account

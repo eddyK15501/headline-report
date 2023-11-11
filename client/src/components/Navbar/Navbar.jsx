@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "semantic-ui-css/semantic.min.css";
 import Signup from "../Signup/Signup";
 
 const Navbar = () => {
@@ -59,7 +58,6 @@ const Navbar = () => {
                       <input
                         type="text"
                         style={{
-                          margin: "3px",
                           width: "100%",
                         }}
                         onClick={(e) => e.stopPropagation()}
@@ -74,14 +72,13 @@ const Navbar = () => {
                       <input
                         type="password"
                         style={{
-                          margin: "3px",
                           width: "100%",
                         }}
                         onClick={(e) => e.stopPropagation()}
                       />
                     </div>
                   </li>
-                  <li className="item" style={{ padding: "10px" }}>
+                  <li className="item" style={{ padding: '1.5rem 2.5rem' }}>
                     <button
                       className="ui button"
                       style={{
@@ -90,13 +87,13 @@ const Navbar = () => {
                       }}
                       onClick={(e) => e.stopPropagation()}
                     >
-                      Log In{" "}
+                      Login
                     </button>
                   </li>
                   <li
-                    className="item"
+                    className="item create-account"
                     onClick={handleCreateAccountClick}
-                    style={{ textAlign: "center", padding: 1 }}
+                    style={{ textAlign: "center", marginBottom: '0.5rem' }}
                   >
                     Create An Account
                   </li>
