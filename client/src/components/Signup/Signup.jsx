@@ -1,26 +1,54 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState, useRef } from "react";
-// import Auth from "../../utils/auth";
+import Auth from "../../utils/auth";
 
-// import { useMutation } from "@apollo/client";
-// import { ADD_USER } from "../../utils/mutations";
+import { useMutation } from "@apollo/client";
+import { ADD_USER } from "../../utils/mutations";
 
 const Signup = ({ toggleModal }) => {
-  // const [userFormData, setUserFormData] = useState({
-  //   username: "",
-  //   email: "",
-  //   password: "",
-  // });
-
+  const [userFormData, setUserFormData] = useState({
+    username: "",
+    email: "",
+    password: "",
+  });
+  const [createUser, _] = useMutation(ADD_USER);
   const [modalVisible, setModalVisible] = useState(true);
   const modalRef = useRef(null);
 
-  const handleBackdropClick = (e) => {
-    if (modalRef.current && !modalRef.current.contains(e.target)) {
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  }
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault()
+
+    try {
+      const { data } = await createUser({
+        variables: { ...userFormData }
+      });
+
+      Auth.login(data.addUser.token);
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong with your signup!');
+    }
+
+    setUserFormData({
+      username: '',
+      email: '',
+      password: ''
+    });
+  }
+
+  const handleBackdropClick = (event) => {
+    if (modalRef.current && !modalRef.current.contains(event.target)) {
       setModalVisible(false);
       toggleModal();
     }
   };
+
 
   return (
     <>
@@ -59,23 +87,35 @@ const Signup = ({ toggleModal }) => {
                 "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
             }}
           >
-            <form style={{ width: '80%', padding: '1rem 0', textAlign: 'center' }}>
+            <form onSubmit={handleFormSubmit} style={{ width: '80%', padding: '1rem 0', textAlign: 'center' }}>
             <h4>Username</h4>
             <input
-              style={{ borderRadius: ".5em", width: "100%" }}
               type="text"
+              placeholder="Your Username"
+              onChange={handleInputChange}
+              value={userFormData.username}
+              name="username"
+              style={{ borderRadius: ".5em", width: "100%" }}
               required
             />
             <h4>Email</h4>
             <input
-              style={{ borderRadius: ".5em", width: "100%" }}
               type="email"
+              placeholder="Your Email"
+              onChange={handleInputChange}
+              value={userFormData.email}
+              name="email"
+              style={{ borderRadius: ".5em", width: "100%" }}
               required
             />
             <h4>Password</h4>
             <input
-              style={{ borderRadius: ".5em", width: "100%" }}
               type="password"
+              placeholder="Your Password"
+              onChange={handleInputChange}
+              value={userFormData.password}
+              name="password"
+              style={{ borderRadius: ".5em", width: "100%" }}
               required
             />
             <div>
