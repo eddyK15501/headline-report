@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import React from "react";
+import { useState } from "react";
+import { BsBookmarkCheck, BsBookmarkCheckFill } from "react-icons/bs";
 
 const NewsResults = ({ newsId, title, description, link, imageUrl }) => {
+  const [clickBookmark, setClickBookmark] = useState("false");
+
   return (
     <div
       className="news-card"
@@ -11,7 +14,7 @@ const NewsResults = ({ newsId, title, description, link, imageUrl }) => {
         boxShadow:
           "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)",
         borderRadius: ".5em",
-        padding: "1em",
+        padding: "1em 1em 2em",
         width: "100%",
         position: "relative",
         display: "flex",
@@ -23,12 +26,24 @@ const NewsResults = ({ newsId, title, description, link, imageUrl }) => {
       }}
     >
       <div
-        className="bookmark-star"
-        style={{ position: "absolute", top: 6, right: 6, fontSize: "2em" }}
+        className="bookmark-icons"
+        style={{
+          position: "absolute",
+          top: 20,
+          right: 20,
+          fontSize: "2em",
+          cursor: "pointer",
+        }}
+        onClick={() => setClickBookmark((prev) => !prev)}
       >
-        &#9734;
+        {clickBookmark ? (
+          <BsBookmarkCheck className="bs-icon" />
+        ) : (
+          <BsBookmarkCheckFill className="bs-icon" />
+        )}
       </div>
-      <h2>{title}</h2>
+
+      <h2 style={{ marginTop: "5rem" }}>{title}</h2>
       <img
         style={{
           border: "solid 1px black",
