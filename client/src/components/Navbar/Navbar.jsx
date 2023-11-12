@@ -7,6 +7,8 @@ import Auth from "../../utils/auth";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 
+import { Icon } from "semantic-ui-react";
+
 const Navbar = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [showDropdown, setShowDropdown] = useState(false);
@@ -74,7 +76,7 @@ const Navbar = () => {
           padding: "0 5rem 0 1rem",
         }}
       >
-        <h1 style={{ margin: "1em" }}>Headline Report</h1>
+        <h1 style={{ margin: "1em", fontSize: "2em", paddingTop: 3 }}>Headline Report</h1>
         <ul
           style={{
             listStyleType: "none",
@@ -92,7 +94,8 @@ const Navbar = () => {
                 onClick={toggleDropdown}
                 style={{ cursor: "pointer" }}
               >
-                Login {showDropdown ? "\u25B3" : "\u25BD"}
+                Login 
+                {showDropdown}
                 {showDropdown && (
                   <form onSubmit={handleFormSubmit}>
                     <div

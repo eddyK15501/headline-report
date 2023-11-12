@@ -58,16 +58,13 @@ const NewsResults = ({ newsId, title, description, link, imageUrl }) => {
       <p>{description}</p>
       <a
         href={link}
-        style={{
-          backgroundColor: "#4D4D4D",
-          color: "white",
-          borderRadius: ".5em",
-          marginTop: "1em",
-          display: "inline-block",
-          padding: ".5em 1em",
-          textDecoration: "none",
-          cursor: "pointer",
-        }}
+        className="ui button"
+                style={{
+                  width: "40%",
+                  backgroundColor: "#4D4D4D",
+                  color: "white",
+                  margin: "2.5em auto 0",
+                }}
         target="_blank"
         rel="noreferrer"
       >
