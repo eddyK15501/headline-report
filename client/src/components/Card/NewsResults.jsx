@@ -2,8 +2,11 @@
 /* eslint-disable no-unused-vars */
 import { useState } from "react";
 import { BsBookmarkCheck, BsBookmarkCheckFill } from "react-icons/bs";
+import Auth from "../../utils/auth";
 
-const NewsResults = ({ newsId, title, description, link, imageUrl }) => {
+// newsId, title, description, link, imageUrl, handleSaveNews, handleRemoveNews
+
+const NewsResults = (props) => {
   const [clickBookmark, setClickBookmark] = useState("false");
 
   return (
@@ -36,14 +39,14 @@ const NewsResults = ({ newsId, title, description, link, imageUrl }) => {
         }}
         onClick={() => setClickBookmark((prev) => !prev)}
       >
-        {clickBookmark ? (
+        {Auth.loggedIn() && !clickBookmark ? (
           <BsBookmarkCheck className="bs-icon" />
         ) : (
           <BsBookmarkCheckFill className="bs-icon" />
         )}
       </div>
 
-      <h2 style={{ marginTop: "5rem" }}>{title}</h2>
+      <h2 style={{ marginTop: "5rem" }}>{props.title}</h2>
       <img
         style={{
           border: "solid 1px black",
@@ -52,12 +55,12 @@ const NewsResults = ({ newsId, title, description, link, imageUrl }) => {
           minHeight: "250px",
           objectFit: "cover",
         }}
-        src={`${imageUrl}`}
+        src={`${props.imageUrl}`}
         alt="News Image"
       />
-      <p>{description}</p>
+      <p>{props.description}</p>
       <a
-        href={link}
+        href={props.link}
         className="ui button"
                 style={{
                   width: "40%",

@@ -6,7 +6,6 @@ import { GET_ME } from '../utils/queries'
 
 // path is to localhost:3000/profile; build this Profile component to render username, email, and the saved news
 const Profile = () => {
-
   const { loading, error, data } = useQuery(GET_ME);
   const [savedNews, setSavedNews] = useState([]);
   const [userData, setUserData] = useState({});
