@@ -93,7 +93,7 @@ const Signup = ({ toggleModal }) => {
               onChange={handleInputChange}
               value={userFormData.username}
               name="username"
-              style={{ borderRadius: ".5em", width: "100%" }}
+              style={{ borderRadius: ".5em", outline: "none", minWidth: '95%', padding: '0.4rem 0 0.3rem 0.3rem' }}
               required
             />
             <h4>Email</h4>
@@ -103,7 +103,7 @@ const Signup = ({ toggleModal }) => {
               onChange={handleInputChange}
               value={userFormData.email}
               name="email"
-              style={{ borderRadius: ".5em", width: "100%" }}
+              style={{ borderRadius: ".5em", outline: "none", minWidth: '95%', padding: '0.4rem 0 0.3rem 0.3rem' }}
               required
             />
             <h4>Password</h4>
@@ -113,7 +113,7 @@ const Signup = ({ toggleModal }) => {
               onChange={handleInputChange}
               value={userFormData.password}
               name="password"
-              style={{ borderRadius: ".5em", width: "100%" }}
+              style={{ borderRadius: ".5em", outline: "none", minWidth: '95%', padding: '0.4rem 0 0.3rem 0.3rem' }}
               required
             />
             <div>

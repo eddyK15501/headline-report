@@ -6,6 +6,8 @@ import Auth from "../../utils/auth";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 
+import { Icon } from "semantic-ui-react";
+
 const Navbar = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [showDropdown, setShowDropdown] = useState(false);
@@ -17,27 +19,27 @@ const Navbar = () => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
-  }
+  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const { data } = await loginUser({
-        variables: { ...userFormData }
-      })
+        variables: { ...userFormData },
+      });
 
       Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
-      alert('Something went wrong with your login credentials!');
+      alert("Something went wrong with your login credentials!");
     }
 
     setUserFormData({
-      email: '',
-      password: ''
+      email: "",
+      password: "",
     });
-  }
+  };
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
@@ -66,7 +68,7 @@ const Navbar = () => {
       <nav
         style={{ backgroundColor: "#3D3D3D", color: "white", display: "flex" }}
       >
-        <h1 style={{ margin: "1em" }}>Headline Report</h1>
+        <h1 style={{ margin: "1em", fontSize: "2em", paddingTop: 3 }}>Headline Report</h1>
         <ul
           style={{
             listStyleType: "none",
@@ -83,7 +85,8 @@ const Navbar = () => {
               onClick={toggleDropdown}
               style={{ cursor: "pointer" }}
             >
-              Log In {showDropdown ? "\u25B3" : "\u25BD"}
+              Log In 
+              {showDropdown}
               {showDropdown && (
                 <form onSubmit={handleFormSubmit}>
                   <div
