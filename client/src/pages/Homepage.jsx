@@ -1,14 +1,14 @@
 /* eslint-disable no-unused-vars */
 import { useState, useEffect } from "react";
-import { useMutation } from '@apollo/client';
-import Auth from '../utils/auth';
+// import { useMutation } from '@apollo/client';
+// import Auth from '../utils/auth';
 
 import Search from "../components/Searchbar/Search";
 import NewsResults from "../components/Card/NewsResults";
 
 import { saveNewsIds, getSavedNewsIds } from "../utils/localStorage";
-import { GET_ME } from '../utils/queries';
-import { SAVE_NEWS } from '../utils/mutations';
+// import { GET_ME } from '../utils/queries';
+// import { SAVE_NEWS } from '../utils/mutations';
 
 const Homepage = () => {
   const [searchedNews, setSearchedNews] = useState([]);
