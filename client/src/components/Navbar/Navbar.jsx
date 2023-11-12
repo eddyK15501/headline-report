@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from 'react-router-dom';
 import Signup from "../Signup/Signup";
 
 import Auth from "../../utils/auth";
@@ -17,34 +18,34 @@ const Navbar = () => {
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setUserFormData({ ...userFormData, [name]: value });
-  }
+  };
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
     try {
       const { data } = await loginUser({
-        variables: { ...userFormData }
-      })
+        variables: { ...userFormData },
+      });
 
       Auth.login(data.login.token);
     } catch (err) {
       console.error(err);
-      alert('Something went wrong with your login credentials!');
+      alert("Something went wrong with your login credentials!");
     }
 
     setUserFormData({
-      email: '',
-      password: ''
+      email: "",
+      password: "",
     });
-  }
+  };
 
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
-    // setUserFormData({ email: '', password: '' });
+    setUserFormData({ email: "", password: "" });
   };
 
-  const handleCreateAccountClick = () => {
+  const handleCreateAccount = () => {
     setShowSignUp((prev) => !prev);
   };
 
@@ -64,7 +65,14 @@ const Navbar = () => {
   return (
     <div>
       <nav
-        style={{ backgroundColor: "#3D3D3D", color: "white", display: "flex" }}
+        style={{
+          backgroundColor: "#3D3D3D",
+          color: "white",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "0 5rem 0 1rem",
+        }}
       >
         <h1 style={{ margin: "1em" }}>Headline Report</h1>
         <ul
@@ -77,101 +85,115 @@ const Navbar = () => {
           }}
           className="nav-btns"
         >
-          <li style={{ margin: "2em" }}>
-            <div
-              ref={dropdownRef}
-              onClick={toggleDropdown}
-              style={{ cursor: "pointer" }}
-            >
-              Log In {showDropdown ? "\u25B3" : "\u25BD"}
-              {showDropdown && (
-                <form onSubmit={handleFormSubmit}>
-                  <div
-                    className="ui dropdown"
-                    style={{
-                      listStyleType: "none",
-                      padding: 0,
-                      margin: 0,
-                      position: "absolute",
-                      top: "100%",
-                      left: 0,
-                      backgroundColor: "#3D3D3D",
-                      opacity: 1,
-                      zIndex: 10,
-                      color: "white",
-                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
-                      borderRadius: ".5em",
-                    }}
-                  >
-                    <div className="item" style={{ padding: "10px" }}>
-                      <label style={{ margin: "3px", display: "block" }}>
-                        Email
-                      </label>
-                      <div className="ui input">
-                        <input
-                          name="email"
-                          onChange={handleInputChange}
-                          value={userFormData.email}
-                          type="email"
-                          style={{
-                            width: "100%",
-                          }}
-                          onClick={(e) => e.stopPropagation()}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="item" style={{ padding: "10px" }}>
-                      <label style={{ margin: "3px", display: "block" }}>
-                        Password
-                      </label>
-                      <div className="ui input">
-                        <input
-                          name="password"
-                          onChange={handleInputChange}
-                          value={userFormData.password}
-                          type="password"
-                          style={{
-                            width: "100%",
-                          }}
-                          onClick={(e) => e.stopPropagation()}
-                          required
-                        />
-                      </div>
-                    </div>
-                    <div className="item" style={{ padding: "1.5rem 2.5rem" }}>
-                      <button
-                        className="ui button"
-                        style={{
-                          width: "100%",
-                          backgroundColor: "white",
-                        }}
-                        type="submit"
-                        onClick={(e) => e.stopPropagation()}
-                      >
-                        Login
-                      </button>
-                    </div>
+          {!Auth.loggedIn() ? (
+            <li style={{ margin: "2em" }}>
+              <div
+                ref={dropdownRef}
+                onClick={toggleDropdown}
+                style={{ cursor: "pointer" }}
+              >
+                Login {showDropdown ? "\u25B3" : "\u25BD"}
+                {showDropdown && (
+                  <form onSubmit={handleFormSubmit}>
                     <div
-                      className="item create-account"
-                      onClick={handleCreateAccountClick}
-                      style={{ textAlign: "center", marginBottom: "0.5rem" }}
+                      className="ui dropdown"
+                      style={{
+                        listStyleType: "none",
+                        padding: 0,
+                        margin: 0,
+                        position: "absolute",
+                        top: "100%",
+                        left: 0,
+                        backgroundColor: "#3D3D3D",
+                        opacity: 1,
+                        zIndex: 10,
+                        color: "white",
+                        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
+                        borderRadius: ".5em",
+                        minWidth: '230px',
+                        transform: 'translateX(-10%)'
+                      }}
                     >
-                      Create An Account
+                      <div className="item" style={{ padding: "10px" }}>
+                        <label style={{ margin: "3px", display: "block" }}>
+                          Email
+                        </label>
+                        <div className="ui input" style={{ display: 'block' }}>
+                          <input
+                            name="email"
+                            onChange={handleInputChange}
+                            value={userFormData.email}
+                            type="email"
+                            style={{
+                              width: "100%",
+                            }}
+                            onClick={(e) => e.stopPropagation()}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div className="item" style={{ padding: "10px" }}>
+                        <label style={{ margin: "3px", display: "block" }}>
+                          Password
+                        </label>
+                        <div className="ui input" style={{ display: 'block' }}>
+                          <input
+                            name="password"
+                            onChange={handleInputChange}
+                            value={userFormData.password}
+                            type="password"
+                            style={{
+                              width: "100%",
+                            }}
+                            onClick={(e) => e.stopPropagation()}
+                            required
+                          />
+                        </div>
+                      </div>
+                      <div
+                        className="item"
+                        style={{ padding: "1.5rem 2.5rem" }}
+                      >
+                        <button
+                          className="ui button"
+                          style={{
+                            width: "100%",
+                            backgroundColor: "white",
+                          }}
+                          type="submit"
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          Login
+                        </button>
+                      </div>
+                      <div
+                        className="item create-account"
+                        onClick={handleCreateAccount}
+                        style={{ textAlign: "center", marginBottom: "0.5rem" }}
+                      >
+                        Create An Account
+                      </div>
                     </div>
-                  </div>
-                </form>
-              )}
-            </div>
-          </li>
-          {/* {{#if loggedIn}} */}
-          <li style={{ margin: "2em" }}>Profile</li>
-          <li style={{ margin: "2em" }}>Log Out</li>
-          {/* {{/if}} */}
+                  </form>
+                )}
+              </div>
+            </li>
+          ) : (
+            <>
+              <li style={{ margin: "2em" }}>
+                <Link to="/profile" style={{ color: "#fff" }}>
+                  Profile
+                </Link>
+              </li>
+              <li onClick={Auth.logout} style={{ margin: "2em", cursor: 'pointer' }}>
+                Log Out
+              </li>
+            </>
+          )}
         </ul>
       </nav>
 
-      {showSignUp && <Signup toggleModal={handleCreateAccountClick} />}
+      {showSignUp && <Signup toggleModal={handleCreateAccount} />}
     </div>
   );
 };
