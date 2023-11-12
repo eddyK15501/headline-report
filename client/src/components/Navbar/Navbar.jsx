@@ -1,17 +1,51 @@
 import { useState, useEffect, useRef } from "react";
 import Signup from "../Signup/Signup";
 
+import Auth from "../../utils/auth";
+
+import { useMutation } from "@apollo/client";
+import { LOGIN_USER } from "../../utils/mutations";
+
 const Navbar = () => {
+  const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [showDropdown, setShowDropdown] = useState(false);
   const [showSignUp, setShowSignUp] = useState(false);
   const dropdownRef = useRef(null);
 
+  const [loginUser] = useMutation(LOGIN_USER);
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+    setUserFormData({ ...userFormData, [name]: value });
+  }
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+
+    try {
+      const { data } = await loginUser({
+        variables: { ...userFormData }
+      })
+
+      Auth.login(data.login.token);
+    } catch (err) {
+      console.error(err);
+      alert('Something went wrong with your login credentials!');
+    }
+
+    setUserFormData({
+      email: '',
+      password: ''
+    });
+  }
+
   const toggleDropdown = () => {
     setShowDropdown(!showDropdown);
+    // setUserFormData({ email: '', password: '' });
   };
 
   const handleCreateAccountClick = () => {
-    setShowSignUp(prev => !prev);
+    setShowSignUp((prev) => !prev);
   };
 
   const handleOutsideClick = (event) => {
@@ -21,9 +55,9 @@ const Navbar = () => {
   };
 
   useEffect(() => {
-    document.addEventListener('click', handleOutsideClick);
+    document.addEventListener("click", handleOutsideClick);
     return () => {
-      document.removeEventListener('click', handleOutsideClick);
+      document.removeEventListener("click", handleOutsideClick);
     };
   }, []);
 
@@ -44,10 +78,14 @@ const Navbar = () => {
           className="nav-btns"
         >
           <li style={{ margin: "2em" }}>
-            <div ref={dropdownRef} onClick={toggleDropdown} style={{ cursor: "pointer" }}>
+            <div
+              ref={dropdownRef}
+              onClick={toggleDropdown}
+              style={{ cursor: "pointer" }}
+            >
               Log In {showDropdown ? "\u25B3" : "\u25BD"}
               {showDropdown && (
-                <form>
+                <form onSubmit={handleFormSubmit}>
                   <div
                     className="ui dropdown"
                     style={{
@@ -71,12 +109,15 @@ const Navbar = () => {
                       </label>
                       <div className="ui input">
                         <input
-                          required
+                          name="email"
+                          onChange={handleInputChange}
+                          value={userFormData.email}
                           type="email"
                           style={{
                             width: "100%",
                           }}
                           onClick={(e) => e.stopPropagation()}
+                          required
                         />
                       </div>
                     </div>
@@ -86,22 +127,26 @@ const Navbar = () => {
                       </label>
                       <div className="ui input">
                         <input
-                          required
+                          name="password"
+                          onChange={handleInputChange}
+                          value={userFormData.password}
                           type="password"
                           style={{
                             width: "100%",
                           }}
                           onClick={(e) => e.stopPropagation()}
+                          required
                         />
                       </div>
                     </div>
-                    <div className="item" style={{ padding: '1.5rem 2.5rem' }}>
+                    <div className="item" style={{ padding: "1.5rem 2.5rem" }}>
                       <button
                         className="ui button"
                         style={{
                           width: "100%",
                           backgroundColor: "white",
                         }}
+                        type="submit"
                         onClick={(e) => e.stopPropagation()}
                       >
                         Login
@@ -110,7 +155,7 @@ const Navbar = () => {
                     <div
                       className="item create-account"
                       onClick={handleCreateAccountClick}
-                      style={{ textAlign: "center", marginBottom: '0.5rem' }}
+                      style={{ textAlign: "center", marginBottom: "0.5rem" }}
                     >
                       Create An Account
                     </div>

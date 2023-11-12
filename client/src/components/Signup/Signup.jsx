@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useState, useRef } from "react";
 import Auth from "../../utils/auth";
@@ -12,7 +11,7 @@ const Signup = ({ toggleModal }) => {
     email: "",
     password: "",
   });
-  const [createUser, _] = useMutation(ADD_USER);
+  const [addUser] = useMutation(ADD_USER);
   const [modalVisible, setModalVisible] = useState(true);
   const modalRef = useRef(null);
 
@@ -25,7 +24,7 @@ const Signup = ({ toggleModal }) => {
     event.preventDefault()
 
     try {
-      const { data } = await createUser({
+      const { data } = await addUser({
         variables: { ...userFormData }
       });
 
@@ -66,7 +65,6 @@ const Signup = ({ toggleModal }) => {
               zIndex: 999,
             }}
           ></div>
-
           <div
             ref={modalRef}
             className="ui card"
