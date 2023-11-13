@@ -28,10 +28,12 @@ const Signup = ({ toggleModal }) => {
         variables: { ...userFormData }
       });
 
+      console.log(data)
+
       Auth.login(data.addUser.token);
     } catch (err) {
       console.error(err);
-      alert('Something went wrong with your signup!');
+      alert('Something went wrong with your signup! No duplicate users allowed.');
     }
 
     setUserFormData({
@@ -47,7 +49,6 @@ const Signup = ({ toggleModal }) => {
       toggleModal();
     }
   };
-
 
   return (
     <>
@@ -129,7 +130,6 @@ const Signup = ({ toggleModal }) => {
               >
                 Create Account
               </button>
-
             </div>
             </form>
           </div>

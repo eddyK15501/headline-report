@@ -7,8 +7,6 @@ import Auth from "../../utils/auth";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../../utils/mutations";
 
-import { Icon } from "semantic-ui-react";
-
 const Navbar = () => {
   const [userFormData, setUserFormData] = useState({ email: "", password: "" });
   const [showDropdown, setShowDropdown] = useState(false);
@@ -26,9 +24,13 @@ const Navbar = () => {
     event.preventDefault();
 
     try {
+      console.log({...userFormData})
+
       const { data } = await loginUser({
         variables: { ...userFormData },
       });
+
+      console.log(data)
 
       Auth.login(data.login.token);
     } catch (err) {
@@ -76,7 +78,11 @@ const Navbar = () => {
           padding: "0 5rem 0 1rem",
         }}
       >
-        <h1 style={{ margin: "1em", fontSize: "2em", paddingTop: 3 }}>Headline Report</h1>
+        <Link to='/' style={{ color: '#fff' }}>
+          <h1 style={{ margin: "1em", fontSize: "2em", paddingTop: 3 }}>
+            Headline Report
+          </h1>
+        </Link>
         <ul
           style={{
             listStyleType: "none",

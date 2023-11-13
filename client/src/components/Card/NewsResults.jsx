@@ -44,8 +44,7 @@ const NewsResults = (props) => {
         textAlign: "center",
       }}
     >
-      {/* MAKE SURE TO CHANGE THIS TO if Auth.loggedIn(); TESTING PURPOSES */}
-      {!Auth.loggedIn() && (
+      {Auth.loggedIn() && (
         <div
           className="bookmark-icons"
           style={{

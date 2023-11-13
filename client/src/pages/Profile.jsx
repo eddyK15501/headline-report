@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react';
 import { useQuery } from '@apollo/client';
-import { getSavedNewsIds } from '../utils/localStorage'
-import { GET_ME } from '../utils/queries'
+import { getSavedNewsIds } from '../utils/localStorage';
+import { GET_ME } from '../utils/queries';
 
 // path is to localhost:3000/profile; build this Profile component to render username, email, and the saved news
 const Profile = () => {
