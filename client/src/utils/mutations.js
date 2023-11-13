@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-const LOGIN_USER = gql`
+export const LOGIN_USER = gql`
   mutation login($email: String!, $password: String!) {
     login(email: $email, password: $password) {
       token
@@ -12,7 +12,7 @@ const LOGIN_USER = gql`
   }
 `;
 
-const ADD_USER = gql`
+export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
       token
@@ -24,7 +24,7 @@ const ADD_USER = gql`
   }
 `;
 
-const SAVE_NEWS = gql`
+export const SAVE_NEWS = gql`
   mutation saveNews($newsSaved: newsInput) {
     saveNews(newsSaved: $newsSaved) {
       username
@@ -32,7 +32,6 @@ const SAVE_NEWS = gql`
       newsCount
       bookmarkedNews {
         newsId
-        source
         title
         description
         imageUrl
@@ -42,7 +41,7 @@ const SAVE_NEWS = gql`
   }
 `;
 
-const REMOVE_NEWS = gql`
+export const REMOVE_NEWS = gql`
   mutation removeNews($newsId: String!) {
     removeNews(newsId: $newsId) {
       username
@@ -50,7 +49,6 @@ const REMOVE_NEWS = gql`
       newsCount
       bookmarkedNews {
         newsId
-        source
         title
         description
         imageUrl
@@ -59,5 +57,3 @@ const REMOVE_NEWS = gql`
     }
   }
 `;
-
-export { ADD_USER, LOGIN_USER, SAVE_NEWS, REMOVE_NEWS };

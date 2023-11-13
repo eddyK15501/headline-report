@@ -34,7 +34,7 @@ const Homepage = () => {
 
   const handleSearchInput = (search) => {
     setSearchedNews(search);
-    console.log(search);
+    // console.log(search);
   };
 
   const handleSaveNews = async (newsId) => {
@@ -56,7 +56,7 @@ const Homepage = () => {
 
       setStoragedNews([...storagedNews, findNews.newsId]);
     } catch (error) {
-      console.error(error);
+      console.error('GraphQL Error:', error.message);
     } 
   };
 

@@ -51,6 +51,7 @@ const resolvers = {
       return { token, user };
     },
     saveNews: async (parent, { newsSaved }, context) => {
+      console.log(newsSaved);
       if (context.user) {
         const updateUserNews = await User.findOneAndUpdate(
           { _id: context.user._id },
