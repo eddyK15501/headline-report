@@ -36,9 +36,9 @@ const Search = ({ handleSearchInput }) => {
   };
 
   // UNCOMMENT AND TEST localstorage; IF GOOD, UNCOMMENT; ELSE REMOVE
-  useEffect(() => {
-    fetchData(searchInput);
-  }, []);
+  // useEffect(() => {
+  //   fetchData(searchInput);
+  // }, []);
 
   const onFormSubmit = async (event) => {
     event.preventDefault();
