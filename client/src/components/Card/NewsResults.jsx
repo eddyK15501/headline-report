@@ -1,13 +1,29 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BsBookmarkCheck, BsBookmarkCheckFill } from "react-icons/bs";
 import Auth from "../../utils/auth";
 
-// newsId, title, description, link, imageUrl, handleSaveNews, handleRemoveNews
+import { getSavedNewsIds } from "../../utils/localStorage";
+
 
 const NewsResults = (props) => {
-  const [clickBookmark, setClickBookmark] = useState("false");
+  const [clickBookmark, setClickBookmark] = useState(false);
+
+  // TEMPORARY; CHECK IF LOCALSTORAGE IS SAVING BOOKMARKED NEWS
+  // useEffect(() => {
+  //   console.log(getSavedNewsIds())
+  // }, [clickBookmark])
+
+  const saveOnClick = () => {
+    setClickBookmark((prev) => !prev);
+    props.handleSaveNews(props.newsId);
+  }
+
+  const removeOnClick = () => {
+    setClickBookmark((prev) => !prev);
+    props.handleRemoveNews(props.newsId);
+  }
 
   return (
     <div
@@ -28,24 +44,25 @@ const NewsResults = (props) => {
         textAlign: "center",
       }}
     >
-      <div
-        className="bookmark-icons"
-        style={{
-          position: "absolute",
-          top: 20,
-          right: 20,
-          fontSize: "2em",
-          cursor: "pointer",
-        }}
-        onClick={() => setClickBookmark((prev) => !prev)}
-      >
-        {Auth.loggedIn() && !clickBookmark ? (
-          <BsBookmarkCheck className="bs-icon" />
-        ) : (
-          <BsBookmarkCheckFill className="bs-icon" />
-        )}
-      </div>
-
+      {/* MAKE SURE TO CHANGE THIS TO if Auth.loggedIn(); TESTING PURPOSES */}
+      {!Auth.loggedIn() && (
+        <div
+          className="bookmark-icons"
+          style={{
+            position: "absolute",
+            top: 20,
+            right: 20,
+            fontSize: "2em",
+            cursor: "pointer",
+          }}
+        >
+          {!clickBookmark ? (
+            <BsBookmarkCheck className="bs-icon" onClick={saveOnClick} />
+            ) : (
+            <BsBookmarkCheckFill className="bs-icon" onClick={removeOnClick} />
+          )}
+        </div>
+      )}
       <h2 style={{ marginTop: "5rem" }}>{props.title}</h2>
       <img
         style={{
@@ -62,12 +79,12 @@ const NewsResults = (props) => {
       <a
         href={props.link}
         className="ui button"
-                style={{
-                  width: "40%",
-                  backgroundColor: "#4D4D4D",
-                  color: "white",
-                  margin: "2.5em auto 0",
-                }}
+        style={{
+          width: "40%",
+          backgroundColor: "#4D4D4D",
+          color: "white",
+          margin: "2.5em auto 0",
+        }}
         target="_blank"
         rel="noreferrer"
       >

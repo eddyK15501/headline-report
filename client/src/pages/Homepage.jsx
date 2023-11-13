@@ -57,7 +57,7 @@ const Homepage = () => {
       setStoragedNews([...storagedNews, findNews.newsId]);
     } catch (error) {
       console.error(error);
-    }
+    } 
   };
 
   const handleRemoveNews = async (newsId) => {
