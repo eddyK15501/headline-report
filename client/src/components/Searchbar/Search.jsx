@@ -5,7 +5,9 @@ import { useState, useEffect } from "react";
 import searchNews from "../../utils/API";
 
 const Search = ({ handleSearchInput }) => {
-  const [searchInput, setSearchInput] = useState("tech");
+  const [searchInput, setSearchInput] = useState(() => {
+    return localStorage.getItem("lastSearchInput") || "tech";
+  });
 
   const fetchData = async (input) => {
     try {
@@ -31,7 +33,7 @@ const Search = ({ handleSearchInput }) => {
     } catch (err) {
       console.error("Error fetching data:", err);
     } finally {
-      setSearchInput('')
+      setSearchInput("");
     }
   };
 
@@ -42,12 +44,14 @@ const Search = ({ handleSearchInput }) => {
   const onFormSubmit = async (event) => {
     event.preventDefault();
     fetchData(searchInput);
+    localStorage.setItem("lastSearchInput", searchInput);
   };
 
   return (
     <div>
       <div
-        className="ui" style={{ backgroundColor: "#3D3D3D", color: "white", padding: "1em"}}
+        className="ui"
+        style={{ backgroundColor: "#3D3D3D", color: "white", padding: "1em" }}
       >
         <div
           style={{
@@ -56,15 +60,29 @@ const Search = ({ handleSearchInput }) => {
             alignItems: "center",
           }}
         >
-          <form style={{ width: '25%', display: 'flex', gap: '0.5rem'}} onSubmit={onFormSubmit}>
+          <form
+            style={{ width: "25%", display: "flex", gap: "0.5rem" }}
+            onSubmit={onFormSubmit}
+          >
             <input
-              style={{ borderRadius: ".5em", outline: "none", minWidth: '95%', fontSize: '1.2rem', padding: '0.4rem 0 0.3rem 0.3rem' }}
+              style={{
+                borderRadius: ".5em",
+                outline: "none",
+                minWidth: "95%",
+                fontSize: "1.2rem",
+                padding: "0.4rem 0 0.3rem 0.3rem",
+              }}
               placeholder="Search for news"
               onChange={(e) => setSearchInput(e.target.value)}
               value={searchInput}
             ></input>
             <button
-              style={{ backgroundColor: "white", borderRadius: ".5em", fontSize: '1.1rem', cursor: 'pointer' }}
+              style={{
+                backgroundColor: "white",
+                borderRadius: ".5em",
+                fontSize: "1.1rem",
+                cursor: "pointer",
+              }}
               type="submit"
             >
               Search

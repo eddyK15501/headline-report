@@ -78,7 +78,7 @@ const Profile = () => {
           padding: "2rem 2rem",
           marginTop: "1rem",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
+          gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
           gridGap: "2rem",
         }}
       >
