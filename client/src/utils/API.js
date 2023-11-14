@@ -19,7 +19,7 @@ const searchNews = (search) => {
     sortBy: "popularity",
     language: "en",
     pageSize: 30,
-    apiKey: '2afba686b3494ed18bc0c0521efb0875',
+    apiKey: 'df836e6622a44a1f83fdbd02cdbbc1ab',
   });
 
   return fetch(`https://newsapi.org/v2/everything?${params}`);
