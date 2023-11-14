@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const formatDate = (date) => {
   date.setDate(date.getDate() - 2);
 
@@ -19,7 +20,7 @@ const searchNews = (search) => {
     sortBy: "popularity",
     language: "en",
     pageSize: 30,
-    apiKey: 'df836e6622a44a1f83fdbd02cdbbc1ab',
+    apiKey: df836e6622a44a1f83fdbd02cdbbc1ab,
   });
 
   return fetch(`https://newsapi.org/v2/everything?${params}`);
