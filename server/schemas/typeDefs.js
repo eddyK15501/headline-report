@@ -36,10 +36,10 @@ const typeDefs = `
     
     type Mutation {
         addUser(username: String!, email: String!, password: String!): Auth
-        removeUser(username: String!, email: String! password: String!): User
         login(email: String!, password: String!): Auth
         saveNews(newsSaved: newsInput): User
         removeNews(newsId: String!): User
+        removeUser(username: String!, email: String!): User
     }
 `;
 

@@ -1,29 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
-import { useState, useEffect } from "react";
+import React from "react";
 import { BsBookmarkCheck, BsBookmarkCheckFill } from "react-icons/bs";
 import Auth from "../../utils/auth";
 
-import { getSavedNewsIds } from "../../utils/localStorage";
-
-
 const NewsResults = (props) => {
-  const [clickBookmark, setClickBookmark] = useState(false);
-
-  // TEMPORARY; CHECK IF LOCALSTORAGE IS SAVING BOOKMARKED NEWS
-  // useEffect(() => {
-  //   console.log(getSavedNewsIds())
-  // }, [clickBookmark])
-
-  const saveOnClick = () => {
-    setClickBookmark((prev) => !prev);
-    props.handleSaveNews(props.newsId);
-  }
-
-  const removeOnClick = () => {
-    setClickBookmark((prev) => !prev);
-    props.handleRemoveNews(props.newsId);
-  }
+  const saveOnClick = async () => {
+    await props.handleSaveNews(props.newsId);
+  };
 
   return (
     <div
@@ -55,10 +39,10 @@ const NewsResults = (props) => {
             cursor: "pointer",
           }}
         >
-          {!clickBookmark ? (
-            <BsBookmarkCheck className="bs-icon" onClick={saveOnClick} />
-            ) : (
-            <BsBookmarkCheckFill className="bs-icon" onClick={removeOnClick} />
+          {!props.storagedNews?.some((id) => id === props.newsId) ? (
+            <BsBookmarkCheck className="bs-icon bookmark" onClick={saveOnClick} />
+          ) : (
+            <BsBookmarkCheckFill className="bs-icon bookmarked" />
           )}
         </div>
       )}

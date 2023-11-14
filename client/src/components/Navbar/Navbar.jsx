@@ -190,6 +190,11 @@ const Navbar = () => {
           ) : (
             <>
               <li style={{ margin: "2em" }}>
+                <Link to="/" style={{ color: "#fff" }}>
+                  Home
+                </Link>
+              </li>
+              <li style={{ margin: "2em" }}>
                 <Link to="/profile" style={{ color: "#fff" }}>
                   Profile
                 </Link>
@@ -201,7 +206,6 @@ const Navbar = () => {
           )}
         </ul>
       </nav>
-
       {showSignUp && <Signup toggleModal={handleCreateAccount} />}
     </div>
   );

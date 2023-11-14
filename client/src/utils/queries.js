@@ -9,7 +9,6 @@ const GET_ME = gql`
             newsCount
             bookmarkedNews {
                 newsId
-                source
                 title
                 description
                 imageUrl
@@ -27,7 +26,6 @@ const ALL_USERS = gql`
             newsCount
             bookmarkedNews {
                 newsId
-                source
                 title 
                 description
                 imageUrl
@@ -45,7 +43,6 @@ const GET_USER = gql`
             newsCount
             bookmarkedNews {
                 newsId
-                source
                 title
                 description
                 imageUrl

@@ -29,8 +29,8 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    removeUser: async (parent, { username, email, password }) => {
-      const user = await User.findOneAndDelete({ username, email, password });
+    removeUser: async (parent, { username, email }) => {
+      const user = await User.findOneAndDelete({ username, email });
       return user;
     },
     login: async (parent, { email, password }) => {
@@ -51,7 +51,7 @@ const resolvers = {
       return { token, user };
     },
     saveNews: async (parent, { newsSaved }, context) => {
-      console.log(newsSaved);
+      console.log(newsSaved)
       if (context.user) {
         const updateUserNews = await User.findOneAndUpdate(
           { _id: context.user._id },

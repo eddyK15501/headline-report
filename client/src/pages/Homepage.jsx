@@ -9,10 +9,9 @@ import NewsResults from "../components/Card/NewsResults";
 import {
   saveNewsIds,
   getSavedNewsIds,
-  removeNewsId,
 } from "../utils/localStorage";
 import { GET_ME } from "../utils/queries";
-import { SAVE_NEWS, REMOVE_NEWS } from "../utils/mutations";
+import { SAVE_NEWS } from "../utils/mutations";
 
 const Homepage = () => {
   const [searchedNews, setSearchedNews] = useState([]);
@@ -23,23 +22,16 @@ const Homepage = () => {
     awaitRefetchQueries: true,
   });
 
-  const [removeNews] = useMutation(REMOVE_NEWS, {
-    refetchQueries: [{ query: GET_ME }],
-    awaitRefetchQueries: true,
-  });
-
   useEffect(() => {
     return () => saveNewsIds(storagedNews);
   });
 
   const handleSearchInput = (search) => {
     setSearchedNews(search);
-    // console.log(search);
   };
 
   const handleSaveNews = async (newsId) => {
     const findNews = searchedNews.find((news) => news.newsId === newsId);
-    console.log(findNews);
 
     const token = Auth.loggedIn() ? Auth.getToken() : null;
 
@@ -48,34 +40,15 @@ const Homepage = () => {
     }
 
     try {
-      const { data } = await saveNews({
+      await saveNews({
         variables: { newsSaved: { ...findNews } },
       });
 
-      console.log(data.saveNews.bookmarkedNews);
-
       setStoragedNews([...storagedNews, findNews.newsId]);
-    } catch (error) {
-      console.error('GraphQL Error:', error.message);
+      console.log(storagedNews);
+    } catch (err) {
+      console.error('GraphQL Error:', err.message);
     } 
-  };
-
-  const handleRemoveNews = async (newsId) => {
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (!token) {
-      return false;
-    }
-
-    try {
-      await removeNews({
-        variables: { newsId },
-      });
-
-      removeNewsId(newsId);
-    } catch (error) {
-      console.error(error);
-    }
   };
 
   return (
@@ -96,8 +69,8 @@ const Homepage = () => {
             <NewsResults
               key={result.newsId}
               { ...result }
+              storagedNews={storagedNews}
               handleSaveNews={handleSaveNews}
-              handleRemoveNews={handleRemoveNews}
             />
           );
         })}
