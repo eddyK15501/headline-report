@@ -1,5 +1,7 @@
 /* eslint-disable no-unused-vars */
+import React from "react";
 import Auth from "../utils/auth";
+import SavedResults from "../components/Card/SavedResults";
 import { removeNewsId } from "../utils/localStorage";
 
 import { useQuery, useMutation } from "@apollo/client";
@@ -47,6 +49,8 @@ const Profile = () => {
         justifyContent: "center",
         flexDirection: "column",
         alignContent: "center",
+        textAlign: "center",
+        paddingBottom: "5rem",
       }}
     >
       <h2 style={{ textAlign: "center", marginTop: "2em" }}>
@@ -54,6 +58,26 @@ const Profile = () => {
         {userData.username.charAt(0).toUpperCase() + userData.username.slice(1)}
         !
       </h2>
+      <h3 style={{ marginTop: 0 }}>Headlines saved: {userData.newsCount}</h3>
+      <div
+        style={{
+          padding: "2rem 2rem",
+          marginTop: "1rem",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax(400px, 1fr))",
+          gridGap: "2rem",
+        }}
+      >
+        {userData.bookmarkedNews.map((news, index) => {
+          return (
+            <SavedResults
+              key={index}
+              {...news}
+              handleRemoveNews={handleRemoveNews}
+            />
+          );
+        })}
+      </div>
     </div>
   );
 };

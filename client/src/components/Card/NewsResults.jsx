@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable no-unused-vars */
 import React from "react";
+import { Tooltip } from "react-tooltip";
 import { BsBookmarkCheck, BsBookmarkCheckFill } from "react-icons/bs";
 import Auth from "../../utils/auth";
 
@@ -40,9 +41,24 @@ const NewsResults = (props) => {
           }}
         >
           {!props.storagedNews?.some((id) => id === props.newsId) ? (
-            <BsBookmarkCheck className="bs-icon bookmark" onClick={saveOnClick} />
+            <>
+              <BsBookmarkCheck
+                className="bs-icon bookmark"
+                onClick={saveOnClick}
+                data-tooltip-id="save-tooltip"
+                data-tooltip-content="Bookmark for later"
+              />
+              <Tooltip id="save-tooltip" style={{ fontSize: "1.2rem" }} />
+            </>
           ) : (
-            <BsBookmarkCheckFill className="bs-icon bookmarked" />
+            <>
+              <BsBookmarkCheckFill
+                className="bs-icon bookmarked"
+                data-tooltip-id="saved-tooltip"
+                data-tooltip-content="Saved!"
+              />
+              <Tooltip id="saved-tooltip" style={{ fontSize: "1.2rem" }} />
+            </>
           )}
         </div>
       )}

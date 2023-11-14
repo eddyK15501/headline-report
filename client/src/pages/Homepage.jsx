@@ -45,7 +45,6 @@ const Homepage = () => {
       });
 
       setStoragedNews([...storagedNews, findNews.newsId]);
-      console.log(storagedNews);
     } catch (err) {
       console.error('GraphQL Error:', err.message);
     } 
