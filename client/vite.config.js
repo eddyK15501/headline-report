@@ -1,32 +1,24 @@
-import { defineConfig } from "vite";
+/* eslint-disable no-unused-vars */
+import { defineConfig, loadEnv } from "vite";
 import react from "@vitejs/plugin-react";
-import { webpack } from "webpack";
 
-// https://vitejs.dev/config/
-export default defineConfig({
-  plugins: [react()],
-  server: {
-    port: 3000,
-    open: true,
-    proxy: {
-      '/graphql': {
-        target: "http://localhost:3001",
-        secure: false,
-        changeOrigin: true,
+export default defineConfig(({ command, mode }) => {
+  const env = loadEnv(mode, process.cwd(), "");
+  return {
+    plugins: [react()],
+    server: {
+      port: 3000,
+      open: true,
+      proxy: {
+        "/graphql": {
+          target: "http://localhost:3001",
+          secure: false,
+          changeOrigin: true,
+        },
       },
     },
-  },
-  build: {
-    rollupOptions: {
-      plugins: [
-        webpack.DefinePlugin({
-          process: {
-            env: {
-              NODE_ENV: '"production"'
-            }
-          }
-        })
-      ]
-    }
-  }
+    define: {
+      "process.env.VITE_API_KEY": env.VITE_API_KEY,
+    },
+  };
 });
