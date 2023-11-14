@@ -8,7 +8,7 @@ const formatDate = (date) => {
   return `${year}-${month}-${day}`;
 };
 
-// Retrieve back news data from two days ago, for better search results
+// import.meta.env setup with Heroku, not working
 const searchNews = (search) => {
   const today = new Date();
   const formattedDate = formatDate(today);
@@ -19,7 +19,7 @@ const searchNews = (search) => {
     sortBy: "popularity",
     language: "en",
     pageSize: 30,
-    apiKey: process.env.VITE_API_KEY,
+    apiKey: '2afba686b3494ed18bc0c0521efb0875',
   });
 
   return fetch(`https://newsapi.org/v2/everything?${params}`);
