@@ -15,7 +15,6 @@ const formatDate = (date) => {
 const searchNews = (search) => {
   const today = new Date();
   const formattedDate = formatDate(today);
-  
   console.log(process.env)
 
   const params = new URLSearchParams({
@@ -24,7 +23,7 @@ const searchNews = (search) => {
     sortBy: "popularity",
     language: "en",
     pageSize: 30,
-    apiKey: process.env.VITE_API_KEY,
+    apiKey: process.env.API_KEY,
   });
 
   return fetch(`https://newsapi.org/v2/everything?${params}`);
