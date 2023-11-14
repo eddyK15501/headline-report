@@ -26,7 +26,7 @@ const searchNews = (search) => {
     sortBy: "popularity",
     language: "en",
     pageSize: 30,
-    apiKey: process.env.API_KEY,
+    apiKey: 'process.env.API_KEY',
   });
 
   return fetch(`https://newsapi.org/v2/everything?${params}`);
