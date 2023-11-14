@@ -1,3 +1,6 @@
+import dotenv from 'dotenv';
+dotenv.config();
+
 const formatDate = (date) => {
   date.setDate(date.getDate() - 2);
 
@@ -12,6 +15,8 @@ const formatDate = (date) => {
 const searchNews = (search) => {
   const today = new Date();
   const formattedDate = formatDate(today);
+  
+  console.log(process.env)
 
   const params = new URLSearchParams({
     q: search,
@@ -19,7 +24,7 @@ const searchNews = (search) => {
     sortBy: "popularity",
     language: "en",
     pageSize: 30,
-    apiKey: 'df836e6622a44a1f83fdbd02cdbbc1ab',
+    apiKey: process.env.VITE_API_KEY,
   });
 
   return fetch(`https://newsapi.org/v2/everything?${params}`);
