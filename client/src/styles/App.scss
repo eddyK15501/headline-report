@@ -40,6 +40,10 @@ button:hover {
     opacity: 0.7;
 }
 
+.bs-icon {
+    outline: none;
+}
+
 .bs-icon.bookmark {
     transition: 0.2s ease-out;
     color: rgb(30, 143, 255);
@@ -51,5 +55,14 @@ button:hover {
 
 .bs-icon.bookmarked {
     color: #4D4D4D;
-    cursor: auto;
+}
+
+.bs-icon.rm-bookmark {
+    transition: 0.2s ease-out;
+    color: rgb(255, 30, 30);
+    font-size: 2.3rem;
+}
+
+.bs-icon.rm-bookmark:hover {
+    opacity: 0.5;
 }

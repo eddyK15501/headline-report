@@ -53,33 +53,45 @@ const Profile = () => {
         paddingBottom: "5rem",
       }}
     >
-      <h2 style={{ textAlign: "center", marginTop: "2em" }}>
-        Welcome Back{" "}
-        {userData.username.charAt(0).toUpperCase() + userData.username.slice(1)}
-        !
-      </h2>
-      <h3 style={{ marginTop: 0 }}>Headlines saved: {userData.newsCount}</h3>
-  
+      <div
+        style={{
+          marginTop: "3rem",
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          padding: "0 4rem",
+          flexWrap: "wrap",
+        }}
+      >
+        <h2 style={{ margin: 0 }}>
+          Welcome Back{" "}
+          {userData.username.charAt(0).toUpperCase() +
+            userData.username.slice(1)}
+          !
+        </h2>
+        <h3 style={{ margin: 0 }}>
+          Headlines bookmarked: {userData.newsCount}
+        </h3>
+      </div>
       <div
         style={{
           padding: "2rem 2rem",
           marginTop: "1rem",
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))", 
+          gridTemplateColumns: "repeat(auto-fit, minmax(400px, 1fr))",
           gridGap: "2rem",
         }}
-        >
+      >
         {userData.bookmarkedNews.map((news, index) => {
           return (
             <SavedResults
-            key={index}
-            {...news}
-            handleRemoveNews={handleRemoveNews}
+              key={index}
+              {...news}
+              handleRemoveNews={handleRemoveNews}
             />
-            );
-          })}
+          );
+        })}
       </div>
-
     </div>
   );
 };
