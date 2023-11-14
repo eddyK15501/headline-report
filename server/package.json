@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node --watch server.js",
-    "watch": "npx nodemon server.js"
+    "watch": "nodemon server.js"
   },
   "author": "",
   "license": "ISC",
@@ -17,5 +17,8 @@
     "graphql": "^16.8.1",
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^8.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.1"
   }
 }
