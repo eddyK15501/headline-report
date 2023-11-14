@@ -1,6 +1,3 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 const formatDate = (date) => {
   date.setDate(date.getDate() - 2);
 
