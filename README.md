@@ -1,70 +1,61 @@
+# Headline Report
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
+![Open Issues](https://img.shields.io/github/issues/eddyK15501/headline-report.svg?color=brighgreen)
+![Contributors](https://img.shields.io/github/contributors/eddyK15501/headline-report.svg?color=lightgrey)
+![Version](https://img.shields.io/badge/Version-1.0.0-brightgreen.svg)
 
-# Headline Report 
+## Description
 
- ## Description
+Headline Report is a versatile platform designed for seamlessly searching news articles across various categories. Leveraging the GNews API, the website aggregates and displays articles dynamically. Users can create accounts to unlock additional features such as bookmarking favorite articles, ensuring a personalized and organized reading experience.
 
-  Headline Report is a versatile platform designed for seamlessly searching news articles across various categories. Leveraging the GNews API, the website aggregates and displays articles dynamically. Users can create accounts to unlock additional features such as bookmarking favorite articles, ensuring a personalized and organized reading experience.
+- [GNews API Documentation](https://gnews.io/)
 
-  Read About [GNews API](https://gnews.io/) 
+## Link to the deployed application
 
- ![Screenshot](/client/public/Images/not-logged.png)
+* [Click Here](https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/)
 
- ## Account Creation
+### Wireframe
 
- ![Screenshot](/client/public/Images/account-creation.png)
+<img src="https://user-images.githubusercontent.com/88423414/283259514-8654dd14-8865-44eb-b782-441df05b9066.png" />
 
- ## Logged In Homepage
+### Basic React Flowchart
 
- ![Screenshot](/client/public/Images/logged-in.png)
+<img src="https://user-images.githubusercontent.com/88423414/283259614-2544be0c-6af4-43a1-b54f-10c05571eec4.png" />
 
- ## Profile
+### Screenshots of the Application
 
- ![Screenshot](/client/public/Images/profile.png)
+* #### Signup
 
- ## Table Of Contents
+![Screenshot](/client/public/Images/account-creation.png)
 
- - [Usage](#usage)
- 
- - [License](#license)
+* #### Homepage
 
- - [Questions](#questions)
+![Screenshot](/client/public/Images/logged-in.png)
 
+* #### Profile
 
- ## Usaage
+![Screenshot](/client/public/Images/profile.png)
 
- Visit the deployed site [here](https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/) to experience the full functionality.
+## Usage
 
-  ## License
+Search for news and save them for future reference. Access the Heroku deployed application for further exploration by clicking on the provided link [here](https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/).
 
-  MIT License
+## License
 
-  Permission is hereby granted, free of charge, to any person obtaining a 
-  copy of this software and associated documentation files (the "Software"), to 
-  deal in the Software without restriction, including without limitation the 
-  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or 
-  sell copies of the Software, and to permit persons to whom the Software is
-  furnished to do so, subject to the following conditions:
+* This application is covered under the [MIT License](./LICENSE).
 
-  The above copyright notice and this permission notice shall be included in all
-  copies or substantial portions of the Software.
+## Credits
+* To the persistent classmates at the UNC coding bootcamp.
+* Written by Edward Kim, Kenneth Lau, Chrisly St Leger, Elaine Luckey, Samantha Gard
 
-  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-  SOFTWARE.
+## Contact
 
-  ## Question
+* edk1231@gmail.com
 
-  edk1231@gmail.com
+* kenlauwork94@gmail.com
 
-  Kenlauwork94@gmail.com
+* stlegerchrisly18@gmail.com
 
-  Stlegerchrisly18@gmail.com
+* emarieluckey@yahoo.com
 
-  emarieluckey@yahoo.com
-
-  Samantha.gard13@gmail.com
+* samantha.gard13@gmail.com
