@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const formatDate = (date) => {
   date.setDate(date.getDate() - 2);
 
@@ -8,7 +9,7 @@ const formatDate = (date) => {
   return `${year}-${month}-${day}`;
 };
 
-// import.meta.env setup with Heroku, not working
+// import.meta.env for Heroku does not work; undefined on runtime
 const searchNews = (search) => {
   const today = new Date();
   const formattedDate = formatDate(today);
@@ -19,7 +20,7 @@ const searchNews = (search) => {
     sortBy: "popularity",
     language: "en",
     pageSize: 30,
-    apiKey: import.meta.env.VITE_API_KEY,
+    apiKey: 'df836e6622a44a1f83fdbd02cdbbc1ab',
   });
 
   return fetch(`https://newsapi.org/v2/everything?${params}`);
