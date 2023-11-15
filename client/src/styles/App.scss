@@ -77,6 +77,14 @@ button:hover {
     ul.nav-btns {
         padding: 0 !important;
     }
+
+    #search-form {
+        width: 50% !important;
+    }
+
+    #dropdown {
+        transform: translateX(-25%) !important;
+    }
 }
 
 @media screen and (max-width: 618px) {
@@ -112,9 +120,5 @@ button:hover {
 @media screen and (max-width: 425px) {
     ul.nav-btns {
         margin: 0 !important;
-    }
-
-    #search-form {
-        width: 50% !important;
     }
 }

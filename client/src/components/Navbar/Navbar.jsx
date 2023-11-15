@@ -105,6 +105,7 @@ const Navbar = () => {
                 {showDropdown && (
                   <form onSubmit={handleFormSubmit}>
                     <div
+                      id="dropdown"
                       className="ui dropdown"
                       style={{
                         listStyleType: "none",
