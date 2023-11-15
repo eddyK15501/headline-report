@@ -4,7 +4,9 @@
 
  ## Description
 
-  This website serves as a versatile platform for searching various news articles. Upon creating an account, users gain the ability to bookmark their favorite articles, conveniently organizing them for later retrieval on their personalized profiles.
+  Headline Report is a versatile platform designed for seamlessly searching news articles across various categories. Leveraging the GNews API, the website aggregates and displays articles dynamically. Users can create accounts to unlock additional features such as bookmarking favorite articles, ensuring a personalized and organized reading experience.
+
+  Read About [GNews API](https://gnews.io/) 
 
  ![Screenshot](/client/public/Images/not-logged.png)
 
@@ -31,7 +33,7 @@
 
  ## Usaage
 
- Visit the deployed site [here.]()
+ Visit the deployed site [here](https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/) to experience the full functionality.
 
   ## License
 
