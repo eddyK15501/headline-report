@@ -61,6 +61,7 @@ const Search = ({ handleSearchInput }) => {
           }}
         >
           <form
+            id="search-form"
             style={{ width: "25%", display: "flex", gap: "0.5rem" }}
             onSubmit={onFormSubmit}
           >

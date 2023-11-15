@@ -66,3 +66,55 @@ button:hover {
 .bs-icon.rm-bookmark:hover {
     opacity: 0.5;
 }
+
+// MEDIA QUERIES (!important to override inline styling)
+@media screen and (max-width: 768px) {
+    nav {
+        flex-direction: column;
+        padding: 0 !important;
+    }
+
+    ul.nav-btns {
+        padding: 0 !important;
+    }
+}
+
+@media screen and (max-width: 618px) {
+    nav {
+        justify-content: center !important;
+    }
+
+    nav li {
+        margin: 1.5rem !important;
+    }
+
+    #homepage-grid {
+        padding: 0 !important;
+        grid-template-columns: 1fr !important;
+    }
+
+    #profile-heading {
+        flex-direction: column !important;
+        justify-content: center !important;
+    }
+
+    #profile-heading h3 {
+        margin-top: 0.5rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    #profile-grid {
+        padding: 0 !important;
+        grid-template-columns: 1fr !important;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    ul.nav-btns {
+        margin: 0 !important;
+    }
+
+    #search-form {
+        width: 50% !important;
+    }
+}

@@ -55,6 +55,7 @@ const Homepage = () => {
       <Search handleSearchInput={handleSearchInput} />
 
       <div
+        id="homepage-grid"
         style={{
           padding: "0 2rem",
           marginTop: "1rem",

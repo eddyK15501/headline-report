@@ -54,6 +54,7 @@ const Profile = () => {
       }}
     >
       <div
+        id="profile-heading"
         style={{
           marginTop: "3rem",
           display: "flex",
@@ -74,6 +75,7 @@ const Profile = () => {
         </h3>
       </div>
       <div
+        id="profile-grid"
         style={{
           padding: "2rem 2rem",
           marginTop: "1rem",
