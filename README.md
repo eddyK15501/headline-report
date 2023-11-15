@@ -50,12 +50,12 @@ Search for news and save them for future reference. Access the Heroku deployed a
 
 ## Contact
 
-* edk1231@gmail.com
+edk1231@gmail.com
 
-* kenlauwork94@gmail.com
+kenlauwork94@gmail.com
 
-* stlegerchrisly18@gmail.com
+stlegerchrisly18@gmail.com
 
-* emarieluckey@yahoo.com
+emarieluckey@yahoo.com
 
-* samantha.gard13@gmail.com
+samantha.gard13@gmail.com
