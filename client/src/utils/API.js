@@ -1,6 +1,3 @@
-import dotenv from 'dotenv';
-dotenv.config();
-
 const formatDate = (date) => {
   date.setDate(date.getDate() - 2);
 
@@ -13,12 +10,8 @@ const formatDate = (date) => {
 
 // import.meta.env setup with Heroku, not working
 const searchNews = (search) => {
-
   const today = new Date();
   const formattedDate = formatDate(today);
-  console.log(process.env)
-
-  fetch('/env').then(res => console.log(res));
 
   const params = new URLSearchParams({
     q: search,
@@ -26,7 +19,7 @@ const searchNews = (search) => {
     sortBy: "popularity",
     language: "en",
     pageSize: 30,
-    apiKey: 'process.env.API_KEY',
+    apiKey: import.meta.env.VITE_API_KEY,
   });
 
   return fetch(`https://newsapi.org/v2/everything?${params}`);
