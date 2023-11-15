@@ -24,7 +24,7 @@ const Search = ({ handleSearchInput }) => {
         title: news.title,
         description: news.description,
         imageUrl:
-          news.urlToImage ||
+          news.image ||
           "https://resources.alleghenycounty.us/css/images/Default_No_Image_Available.png",
         link: news.url,
       }));
