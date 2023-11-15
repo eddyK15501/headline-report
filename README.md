@@ -4,20 +4,34 @@
 
  ## Description
 
- This website serves as a versatile platform for searching various news articles. Upon creating an account, users gain the ability to bookmark their favorite articles, conveniently organizing them for later retrieval on their personalized profiles.
+  This website serves as a versatile platform for searching various news articles. Upon creating an account, users gain the ability to bookmark their favorite articles, conveniently organizing them for later retrieval on their personalized profiles.
 
- ![Screenshot](/client/public/Images/Screenshot%202023-11-14%20132617.png)
+ ![Screenshot](/client/public/Images/not-logged.png)
+
+ ## Account Creation
+
+ ![Screenshot](/client/public/Images/account-creation.png)
+
+ ## Logged In Homepage
+
+ ![Screenshot](/client/public/Images/logged-in.png)
+
+ ## Profile
+
+ ![Screenshot](/client/public/Images/profile.png)
 
  ## Table Of Contents
 
- - [Installation](#installation)
+ - [Usage](#usage)
  
  - [License](#license)
 
+ - [Questions](#questions)
 
- ## Installation
 
- Visit the deployed site.
+ ## Usaage
+
+ Visit the deployed site [here.]()
 
   ## License
 
@@ -40,3 +54,15 @@
   LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
   OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
   SOFTWARE.
+
+  ## Question
+
+  edk1231@gmail.com
+
+  Kenlauwork94@gmail.com
+
+  Stlegerchrisly18@gmail.com
+
+  emarieluckey@yahoo.com
+
+  Samantha.gard13@gmail.com
