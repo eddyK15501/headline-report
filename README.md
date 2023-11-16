@@ -8,11 +8,13 @@
 
 Explore daily news updates and create an account to bookmark articles for future reference. Headline Report is a full-stack web application designed for seamlessly searching news articles across various categories, using cutting-edge technologies to enhance the user experience. It employs a powerful tech stack, featuring Vite.js and React.js for frontend development, Express.js for the backend, and GraphQL with Apollo for seamless data handling. Authentication is secured with JWT and Bcrypt, while Semantic UI CSS, React Icons/Tooltips enhance the user interface. Data is managed through Mongoose ODM and MongoDB Atlas. This application is deployed and hosted on Heroku for scalability.
 
-- [GNews API Documentation](https://gnews.io/)
+### GNews API Documentation
+
+- [Read More](https://gnews.io/)
 
 ## Link to the deployed application
 
-* [Click Here](https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/)
+* [https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/](https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/)
 
 ### Wireframe
 
@@ -38,7 +40,7 @@ Explore daily news updates and create an account to bookmark articles for future
 
 ## Usage
 
-Search for news and save them for future reference. Access the Heroku deployed application for further exploration by clicking on the provided link [here](https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/).
+Search for news articles and save them for later. Access the Heroku deployed application for further exploration by clicking on the provided link [here](https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/).
 
 ## License
 
