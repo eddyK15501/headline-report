@@ -16,15 +16,15 @@ Explore daily news updates and create an account to bookmark articles for future
 
 * [https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/](https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/)
 
-### Wireframe
+## Wireframe
 
 <img src="https://user-images.githubusercontent.com/88423414/283259514-8654dd14-8865-44eb-b782-441df05b9066.png" />
 
-### Basic React Flowchart
+## Basic React Flowchart
 
 <img src="https://user-images.githubusercontent.com/88423414/283259614-2544be0c-6af4-43a1-b54f-10c05571eec4.png" />
 
-### Screenshots of the Application
+## Screenshots of the Application
 
 * #### Signup
 
@@ -37,10 +37,6 @@ Explore daily news updates and create an account to bookmark articles for future
 * #### Profile
 
 ![Screenshot](/client/public/Images/profile.png)
-
-## Usage
-
-Search for news articles and save them for later. Access the Heroku deployed application for further exploration by clicking on the provided link [here](https://eddyk15501-headline-report-3d1644b4d160.herokuapp.com/).
 
 ## License
 
