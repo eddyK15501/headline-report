@@ -22,7 +22,6 @@ const Profile = () => {
   }
 
   const userData = data?.me || {};
-  console.log(userData);
 
   const handleRemoveNews = async (newsId) => {
     const token = Auth.loggedIn() ? Auth.getToken() : null;
