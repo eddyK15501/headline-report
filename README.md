@@ -20,7 +20,7 @@ Explore daily news updates and create an account to bookmark articles for future
 
 <img src="https://user-images.githubusercontent.com/88423414/283259514-8654dd14-8865-44eb-b782-441df05b9066.png" />
 
-## Basic React Flowchart
+## React Components Diagram
 
 <img src="https://user-images.githubusercontent.com/88423414/283259614-2544be0c-6af4-43a1-b54f-10c05571eec4.png" />
 
