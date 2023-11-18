@@ -6,7 +6,7 @@
 
 ## Description
 
-Explore daily news updates and create an account to bookmark articles for future reference. Headline Report is a full-stack web application designed for seamlessly searching news articles across various categories, using cutting-edge technologies to enhance the user experience. It employs a powerful tech stack, featuring Vite.js and React.js for frontend development, Express.js for the backend, and GraphQL with Apollo for seamless data handling. Authentication is secured with JWT and Bcrypt, while Semantic UI CSS, React Icons/Tooltips enhance the user interface. Data is managed through Mongoose ODM and MongoDB Atlas. Deployed and hosted on Heroku for scalability. Responsive layout integrated for seamless adaptation for all screen sizes.
+Explore daily news updates and create an account to bookmark articles for future reference. Headline Report is a full-stack web application designed for seamlessly searching news articles across various categories, using cutting-edge technologies to enhance the user experience. It employs a powerful tech stack, featuring Vite.js and React.js for frontend development, Express.js for the backend, and GraphQL with Apollo for seamless data handling. Authentication is secured with JWT and Bcrypt, while Semantic UI CSS, React Icons/Tooltips enhance the user interface. Data is managed through Mongoose ODM and MongoDB Atlas. Deployed and hosted on Heroku for scalability. Responsive layout integrated for adaptation to all screen sizes.
 
 ### GNews API Documentation
 
